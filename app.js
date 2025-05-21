@@ -1,3 +1,7 @@
+const operations = ["+", "-", "*", "/"];
+let calcuations = { num1: 0, num2: 0, operator: ""}
+
+
 function add(a,b) {
 	return a + b;
 }
