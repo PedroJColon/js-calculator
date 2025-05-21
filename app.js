@@ -32,7 +32,6 @@ function operate() {
 	if (calcuations.operator == operations[3]) {
 		divide(calcuations.num1, calcuations.num2);
 	}
-	
 }
 
 console.log(add(5,4));
