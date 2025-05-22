@@ -35,6 +35,23 @@ function operate() {
 	}
 }
 
+const numButton = document.querySelectorAll(".button-flex");
+
+numButton.forEach(element => {
+	element.addEventListener("click", (e) => {
+		operations.forEach(operator => {
+			if (element.value == operator) {
+				calcuations.operator = element.value;
+				console.log(calcuations.operator);
+			}
+		});
+		
+		calcuations.num1 = calcuations.num1 + element.value;
+		console.log(element.value);
+		console.log(calcuations.num1);
+	});
+});
+
 console.log(add(5,4));
 console.log(subtract(5,4));
 console.log(multiply(5,4));
