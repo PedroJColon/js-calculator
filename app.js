@@ -22,32 +22,62 @@ function divide(a,b) {
 
 
 function operate() {
+	let output = 0;
+
+	// Convert strings into numbers
+	calcuations.num1 = Number(calcuations.num1);
+	calcuations.num2 = Number(calcuations.num2);
+	
+	// Determine what operation to perform.
+	// NOTE: Did not use for loop due to operations having to be specfic
 	if (calcuations.operator == operations[0]) {
-		add(calcuations.num1, calcuations.num2);
+		output = add(calcuations.num1, calcuations.num2);
 	}
 	if (calcuations.operator == operations[1]) {
-		subtract(calcuations.num1, calcuations.num2);
+		output = subtract(calcuations.num1, calcuations.num2);
 	}
 	if (calcuations.operator == operations[2]) {
-		multiply(calcuations.num1, calcuations.num2);
+		output = multiply(calcuations.num1, calcuations.num2);
 	}
 	if (calcuations.operator == operations[3]) {
-		divide(calcuations.num1, calcuations.num2);
+		output = divide(calcuations.num1, calcuations.num2);
 	}
+	console.log(output);
+
+	// Once all is done, reset the calcuations object to default values 
+	calcuations.num1 = calcuationsDefaults[0];
+	calcuations.num2 = calcuationsDefaults[0];
+	calcuations.operator = calcuationsDefaults[0];
+	calcuations.isOperator = calcuationsDefaults[1];
+
+	const outputContainer = document.querySelector(".output-container");
+	outputContainer.textContent = output;
 }
 
 const numButton = document.querySelectorAll(".button-flex");
 
 numButton.forEach(element => {
 	element.addEventListener("click", (e) => {
+		if (equation == element.value) {
+			operate();
+		}
 		operations.forEach(operator => {
 			if (element.value == operator) {
 				calcuations.operator = element.value;
+				calcuations.isOperator = true;
 				console.log(calcuations.operator);
 			}
 		});
-		
-		calcuations.num1 = calcuations.num1 + element.value;
+		if (calcuations.operator == element.value) {
+			return;
+		}
+
+		if (calcuations.isOperator) {
+			calcuations.num2 = calcuations.num2 + element.value;
+		}
+		else {
+			calcuations.num1 = calcuations.num1 + element.value;
+		}
 		console.log(element.value);
 		console.log(calcuations.num1);
 	});
