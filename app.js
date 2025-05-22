@@ -61,7 +61,6 @@ function operate() {
 }
 
 const numButton = document.querySelectorAll(".button-flex");
-
 numButton.forEach(element => {
 	element.addEventListener("click", (e) => {
 		if (element.value == "reset") {
@@ -73,7 +72,7 @@ numButton.forEach(element => {
 			return;
 		}
 		operations.forEach(operator => {
-			if (element.value == operator) {
+			if (element.value == operator && !calcuations.isOperator) {
 				calcuations.operator = element.value;
 				calcuations.isOperator = true;
 				console.log(calcuations.operator);
