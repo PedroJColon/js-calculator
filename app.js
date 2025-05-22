@@ -2,7 +2,7 @@ const operations = ["+", "-", "*", "/"];
 const equation = "=";
 const calcuationsDefaults = ["", false];
 
-let calcuations = { num1: "", num2: "", finalNum: "", operator: "", isOperator: false}
+let calcuations = { num1: "", num2: "", finalNum: "", operator: "", isOperator: false, infiniteAnswer: false}
 
 function add(a,b) {
 	return a + b;
