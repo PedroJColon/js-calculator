@@ -20,6 +20,12 @@ function divide(a,b) {
 	return a / b;
 }
 
+function reset() {
+	calcuations.num1 = calcuationsDefaults[0];
+	calcuations.num2 = calcuationsDefaults[0];
+	calcuations.operator = calcuationsDefaults[0];
+	calcuations.isOperator = calcuationsDefaults[1];
+}
 
 function operate() {
 	let output = 0;
