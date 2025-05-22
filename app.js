@@ -64,8 +64,13 @@ const numButton = document.querySelectorAll(".button-flex");
 
 numButton.forEach(element => {
 	element.addEventListener("click", (e) => {
-		if (equation == element.value) {
+		if (element.value == "reset") {
+			reset();
+			return;
+		}
+		if (element.value == equation) {
 			operate();
+			return;
 		}
 		operations.forEach(operator => {
 			if (element.value == operator) {
