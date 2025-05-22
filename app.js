@@ -52,7 +52,8 @@ function operate() {
 
 	calcuations.finalNum = output;
 	if (calcuations.finalNum == Infinity) {
-		calcuations.finalNum = "INFINITE! TRY NOT TO BREAK PLEASE!";
+		calcuations.finalNum = "CANNOT COMPUTE DIVISION BY ZERO!";
+		calcuations.infiniteAnswer = true;
 	}
 	reset();
 	
