@@ -87,6 +87,14 @@ numButton.forEach(element => {
 				console.log(calcuations.num1);
 			}
 		});
+		
+		if (calcuations.infiniteAnswer) {
+			reset();
+			calcuations.finalNum = calcuationsDefaults[0];
+			calcuations.infiniteAnswer = calcuationsDefaults[1];
+			return;
+		}
+
 		if (calcuations.operator == element.value) {
 			return;
 		}
