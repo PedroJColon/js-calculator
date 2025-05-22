@@ -50,11 +50,11 @@ function operate() {
 	}
 	console.log(output);
 
-	// Once all is done, reset the calcuations object to default values 
-	calcuations.num1 = calcuationsDefaults[0];
-	calcuations.num2 = calcuationsDefaults[0];
-	calcuations.operator = calcuationsDefaults[0];
-	calcuations.isOperator = calcuationsDefaults[1];
+	calcuations.finalNum = output;
+	if (calcuations.finalNum == Infinity) {
+		calcuations.finalNum = "INFINITE! TRY NOT TO BREAK PLEASE!";
+	}
+	reset();
 
 	const outputContainer = document.querySelector(".output-container");
 	outputContainer.textContent = output;
