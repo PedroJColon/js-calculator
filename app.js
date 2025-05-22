@@ -55,7 +55,7 @@ function operate() {
 		calcuations.finalNum = "INFINITE! TRY NOT TO BREAK PLEASE!";
 	}
 	reset();
-
+	
 	const outputContainer = document.querySelector(".output-container");
 	outputContainer.textContent = calcuations.finalNum;
 }
@@ -77,6 +77,14 @@ numButton.forEach(element => {
 				calcuations.isOperator = true;
 				console.log(calcuations.operator);
 			}
+			else if (element.value == operator && calcuations.isOperator 
+				&& !(calcuations.num2 == calcuationsDefaults[0])) {
+				operate();
+				calcuations.operator = element.value;
+				calcuations.num1 = calcuations.finalNum;
+				calcuations.isOperator = true;
+				console.log(calcuations.num1);
+			}
 		});
 		if (calcuations.operator == element.value) {
 			return;
@@ -89,11 +97,5 @@ numButton.forEach(element => {
 			calcuations.num1 = calcuations.num1 + element.value;
 		}
 		console.log(element.value);
-		console.log(calcuations.num1);
 	});
 });
-
-console.log(add(5,4));
-console.log(subtract(5,4));
-console.log(multiply(5,4));
-console.log(divide(5,5));
