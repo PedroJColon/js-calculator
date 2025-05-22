@@ -1,6 +1,7 @@
 const operations = ["+", "-", "*", "/"];
-let calcuations = { num1: 0, num2: 0, operator: ""}
-
+let calcuations = { num1: "", num2: "", operator: ""}
+// isOperator = bool (usage: check to see if element value is operator. if it is do not add and change to num2)
+// 
 
 function add(a,b) {
 	return a + b;
