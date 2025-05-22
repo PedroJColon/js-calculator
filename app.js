@@ -57,7 +57,7 @@ function operate() {
 	reset();
 
 	const outputContainer = document.querySelector(".output-container");
-	outputContainer.textContent = output;
+	outputContainer.textContent = calcuations.finalNum;
 }
 
 const numButton = document.querySelectorAll(".button-flex");
