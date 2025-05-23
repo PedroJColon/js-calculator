@@ -86,6 +86,10 @@ numButton.forEach(element => {
 				calcuations.isOperator = true;
 				console.log(calcuations.num1);
 			}
+			else if (element.value == operator && calcuations.isOperator
+				&& calcuations.num2 == calcuationsDefaults[0]) {
+				calcuations.operator = element.value;
+			}
 		});
 		
 		if (calcuations.infiniteAnswer) {
