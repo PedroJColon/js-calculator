@@ -1,8 +1,8 @@
 const operations = ["+", "-", "*", "/"];
 const equation = "=";
-const calcuationsDefaults = ["", false];
+const calculationsDefaults = ["", false];
 
-let calcuations = { num1: "", num2: "", finalNum: "", operator: "", isOperator: false, infiniteAnswer: false}
+let calculations = { num1: "", num2: "", finalNum: "", operator: "", isOperator: false, infiniteAnswer: false}
 
 function add(a,b) {
 	return a + b;
@@ -21,44 +21,44 @@ function divide(a,b) {
 }
 
 function reset() {
-	calcuations.num1 = calcuationsDefaults[0];
-	calcuations.num2 = calcuationsDefaults[0];
-	calcuations.operator = calcuationsDefaults[0];
-	calcuations.isOperator = calcuationsDefaults[1];
+	calculations.num1 = calculationsDefaults[0];
+	calculations.num2 = calculationsDefaults[0];
+	calculations.operator = calculationsDefaults[0];
+	calculations.isOperator = calculationsDefaults[1];
 }
 
 function operate() {
 	let output = 0;
 
 	// Convert strings into numbers
-	calcuations.num1 = Number(calcuations.num1);
-	calcuations.num2 = Number(calcuations.num2);
+	calculations.num1 = Number(calculations.num1);
+	calculations.num2 = Number(calculations.num2);
 	
 	// Determine what operation to perform.
-	// NOTE: Did not use for loop due to operations having to be specfic
-	if (calcuations.operator == operations[0]) {
-		output = add(calcuations.num1, calcuations.num2);
+	// NOTE: Did not use for loop due to operations having to be specific
+	if (calculations.operator == operations[0]) {
+		output = add(calculations.num1, calculations.num2);
 	}
-	if (calcuations.operator == operations[1]) {
-		output = subtract(calcuations.num1, calcuations.num2);
+	if (calculations.operator == operations[1]) {
+		output = subtract(calculations.num1, calculations.num2);
 	}
-	if (calcuations.operator == operations[2]) {
-		output = multiply(calcuations.num1, calcuations.num2);
+	if (calculations.operator == operations[2]) {
+		output = multiply(calculations.num1, calculations.num2);
 	}
-	if (calcuations.operator == operations[3]) {
-		output = divide(calcuations.num1, calcuations.num2);
+	if (calculations.operator == operations[3]) {
+		output = divide(calculations.num1, calculations.num2);
 	}
-	console.log(output);
+	// console.log(output);
 
-	calcuations.finalNum = output;
-	if (calcuations.finalNum == Infinity) {
-		calcuations.finalNum = "CANNOT COMPUTE DIVISION BY ZERO!";
-		calcuations.infiniteAnswer = true;
+	calculations.finalNum = output;
+	if (calculations.finalNum == Infinity) {
+		calculations.finalNum = "CANNOT COMPUTE DIVISION BY ZERO!";
+		calculations.infiniteAnswer = true;
 	}
 	reset();
 	
 	const outputContainer = document.querySelector(".output-container");
-	outputContainer.textContent = calcuations.finalNum;
+	outputContainer.textContent = calculations.finalNum;
 }
 
 const numButton = document.querySelectorAll(".button-flex");
@@ -73,42 +73,42 @@ numButton.forEach(element => {
 			return;
 		}
 		operations.forEach(operator => {
-			if (element.value == operator && !calcuations.isOperator) {
-				calcuations.operator = element.value;
-				calcuations.isOperator = true;
-				console.log(calcuations.operator);
+			if (element.value == operator && !calculations.isOperator) {
+				calculations.operator = element.value;
+				calculations.isOperator = true;
+				console.log(calculations.operator);
 			}
-			else if (element.value == operator && calcuations.isOperator 
-				&& !(calcuations.num2 == calcuationsDefaults[0])) {
+			else if (element.value == operator && calculations.isOperator 
+				&& !(calculations.num2 == calculationsDefaults[0])) {
 				operate();
-				calcuations.operator = element.value;
-				calcuations.num1 = calcuations.finalNum;
-				calcuations.isOperator = true;
-				console.log(calcuations.num1);
+				calculations.operator = element.value;
+				calculations.num1 = calculations.finalNum;
+				calculations.isOperator = true;
+				console.log(calculations.num1);
 			}
-			else if (element.value == operator && calcuations.isOperator
-				&& calcuations.num2 == calcuationsDefaults[0]) {
-				calcuations.operator = element.value;
+			else if (element.value == operator && calculations.isOperator
+				&& calculations.num2 == calculationsDefaults[0]) {
+				calculations.operator = element.value;
 			}
 		});
 		
-		if (calcuations.infiniteAnswer) {
+		if (calculations.infiniteAnswer) {
 			reset();
-			calcuations.finalNum = calcuationsDefaults[0];
-			calcuations.infiniteAnswer = calcuationsDefaults[1];
+			calculations.finalNum = calculationsDefaults[0];
+			calculations.infiniteAnswer = calculationsDefaults[1];
 			return;
 		}
 
-		if (calcuations.operator == element.value) {
+		if (calculations.operator == element.value) {
 			return;
 		}
 
-		if (calcuations.isOperator) {
-			calcuations.num2 = calcuations.num2 + element.value;
+		if (calculations.isOperator) {
+			calculations.num2 = calculations.num2 + element.value;
 		}
 		else {
-			calcuations.num1 = calcuations.num1 + element.value;
+			calculations.num1 = calculations.num1 + element.value;
 		}
-		console.log(element.value);
+		// console.log(element.value);
 	});
 });
